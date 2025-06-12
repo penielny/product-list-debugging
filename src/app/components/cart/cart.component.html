@@ -9,7 +9,7 @@
           <p class="item-info-name">{{cartItem.dessertName}}</p>
           <div class="item-sumary">
             <p class="item-quantity">x{{cartItem.quantity}}</p>
-            <p class="item-price">{{cartItem.price | currency:'USD':'symbol':'1.2-2' }}</p>
+            <p class="item-price">&#64; {{cartItem.price | currency:'USD':'symbol':'1.2-2' }}</p>
             <p class="item-total">{{cartItem.price * cartItem.quantity | currency:'USD':'symbol':'1.2-2' }}</p>
           </div>
         </div>
