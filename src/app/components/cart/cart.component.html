@@ -1,0 +1,45 @@
+<section class="cart">
+  <h2>Your Cart ({{cart.length}})</h2>
+  <div class="content">
+    @if (cart.length) {
+    <section class="cart-items-list">
+      @for (cartItem of cart; track $index) {
+      <div class="cart-item">
+        <div class="item-info-container">
+          <p class="item-info-name">{{cartItem.dessertName}}</p>
+          <div class="item-sumary">
+            <p class="item-quantity">x{{cartItem.quantity}}</p>
+            <p class="item-price">{{cartItem.price | currency:'USD':'symbol':'1.2-2' }}</p>
+            <p class="item-total">{{cartItem.price * cartItem.quantity | currency:'USD':'symbol':'1.2-2' }}</p>
+          </div>
+        </div>
+        <button (click)="removeItemFromCart(cartItem.dessertName)" class="itemm-delete-button">
+          <img src="images/icon-remove-item.svg" alt="empty cart svg">
+        </button>
+      </div>
+      }
+
+      <div class="item-list-total-container">
+        <div class="cart-total-container">
+          <p class="total-label">Order Total</p>
+          <h3 class="cart-total">{{getTotal() | currency:'USD':'symbol':'1.2-2'}}</h3>
+        </div>
+        <div class="cart-quick-message">
+          <img src="images/icon-carbon-neutral.svg" alt="empty cart svg">
+          <p>This is a <span class="bold">carbon-neutral</span> delivery</p>
+        </div>
+        <button class="confirm-button">Confirm Order</button>
+      </div>
+
+    </section>
+    }
+    @else {
+    <div class="empty-cart-content">
+      <img src="images/illustration-empty-cart.svg" alt="empty cart svg">
+      <p class="empty-cart-description">
+        Your added items will appear here
+      </p>
+    </div>
+    }
+  </div>
+</section>

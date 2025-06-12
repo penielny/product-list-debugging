@@ -1,5 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, inject, Input, OnInit } from '@angular/core';
 import { Dessert } from '../../interfaces/dessert';
+import { CartService } from '../../services/cart';
 
 @Component({
   standalone: true,
@@ -8,26 +9,49 @@ import { Dessert } from '../../interfaces/dessert';
   styleUrl: './add-to-cart.component.scss'
 })
 
-export class AddToCartComponent {
+export class AddToCartComponent implements OnInit {
   isAddedToCart = false;
   quantity = 1;
 
-  @Input() dessert!:Dessert;
+  @Input() dessert!: Dessert;
+  cartService = inject(CartService)
+
+  ngOnInit(): void {
+    this.cartService.cart$.subscribe({
+      next: (value) => {
+        const desertFound = this.cartService.isInCart(this.dessert.name)
+        if (desertFound !== -1) {
+          this.quantity = value[desertFound].quantity
+        }
+        if (desertFound === -1) {
+          this.quantity = 0;
+          this.isAddedToCart = false;
+        }
+      },
+    })
+
+  }
 
   addToCart() {
+    this.quantity = 1;
+    this.cartService.addToCart(this.dessert.name)
     this.isAddedToCart = true;
   }
 
   decreaseProductItem() {
+    this.quantity--;
+    this.cartService.quantityAction(this.dessert.name, "DECREASE")
     if (this.quantity < 1) {
       this.isAddedToCart = false;
-      return
+      this.quantity = 0;
+      this.cartService.removeFromCart(this.dessert.name)
     }
-    this.quantity--;
   }
 
   increaseProductItem() {
     ++this.quantity;
+    this.cartService.quantityAction(this.dessert.name, "INCREASE")
   }
+
 
 };

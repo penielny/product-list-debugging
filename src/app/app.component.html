@@ -4,10 +4,10 @@
 
     <div class="desserts-container">
       @for (dessert of desserts; track $index) {
-        <div class="dessert-item">
+      <div class="dessert-item">
         <section class="item-image-add-to-cart">
-           <img [src]="dessert.image.tablet" alt="dessert image">
-          <app-add-to-cart />
+          <img [src]="dessert.image.tablet" alt="dessert image">
+          <app-add-to-cart [dessert]="dessert" />
         </section>
         <section class="item-info">
           <p class="category">{{dessert.category}}</p>
@@ -18,16 +18,5 @@
       }
     </div>
   </section>
-
-  <section class="cart">
-    <h2>Your Cart (0)</h2>
-    <div class="content">
-      <div class="empty-cart-content">
-        <img src="images/illustration-empty-cart.svg" alt="empty cart svg">
-        <p class="empty-cart-description">
-          Your added items will appear here
-        </p>
-      </div>
-    </div>
-  </section>
+  <app-cart></app-cart>
 </main>
