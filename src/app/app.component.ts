@@ -11,7 +11,7 @@ import { OrderModalComponent } from './components/order-modal/order-modal.compon
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
-  imports: [AddToCartComponent,OrderModalComponent, CartComponent, CommonModule, CartComponent,NgIf]
+  imports: [AddToCartComponent,OrderModalComponent, CartComponent, CommonModule, CartComponent]
 })
 
 export class AppComponent {
