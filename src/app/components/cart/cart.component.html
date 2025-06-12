@@ -18,7 +18,6 @@
         </button>
       </div>
       }
-
       <div class="item-list-total-container">
         <div class="cart-total-container">
           <p class="total-label">Order Total</p>
@@ -28,7 +27,7 @@
           <img src="images/icon-carbon-neutral.svg" alt="empty cart svg">
           <p>This is a <span class="bold">carbon-neutral</span> delivery</p>
         </div>
-        <button class="confirm-button">Confirm Order</button>
+        <button (click)="onConfirm()" class="confirm-button">Confirm Order</button>
       </div>
 
     </section>
