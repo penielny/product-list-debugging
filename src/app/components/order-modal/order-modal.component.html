@@ -14,13 +14,13 @@
                     [ngClass]="{ 'border-b': !$last }"
                     >
                         <div class="item-image-container">
-                            <img class="item-thumbnail" src="images/image-panna-cotta-thumbnail.jpg" />
+                            <img class="item-thumbnail" [src]="item.image" />
     
                             <div class="item-info">
-                                <h3>Classic Tiramisu</h3>
+                                <h3>{{item.dessertName}}</h3>
                                 <p>
                                     <span class="item-quantity">{{item.quantity}}x</span>
-                                    <span class="item-price">{{item.price | currency:'USD':'symbol':'1.2-2'}}</span>
+                                    <span class="item-price"> &#64; {{item.price | currency:'USD':'symbol':'1.2-2'}}</span>
                                 </p>
                             </div>
                         </div>

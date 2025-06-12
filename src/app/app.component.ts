@@ -5,13 +5,14 @@ import { Dessert } from './interfaces/dessert';
 import { DessertService } from './services/dessert';
 import { CartComponent } from "./components/cart/cart.component";
 import { OrderModalComponent } from './components/order-modal/order-modal.component';
+import { DessertCardComponent } from './components/dessert-card/dessert-card.component';
 
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
-  imports: [AddToCartComponent,OrderModalComponent, CartComponent, CommonModule, CartComponent]
+  imports: [DessertCardComponent,OrderModalComponent, CartComponent, CommonModule, CartComponent]
 })
 
 export class AppComponent {
