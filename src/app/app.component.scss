@@ -15,6 +15,7 @@ main {
     padding: 5.5rem 0rem;
    // padding: 1rem 0;
     // flex-wrap: wrap;
+    
 }
 
 .desserts {
@@ -91,6 +92,10 @@ main {
 }
 
 @media screen and (max-width:768px) {
+
+  .dessert-item {
+    width: 100%;
+  }
   main{
    flex-direction: column;
   }
