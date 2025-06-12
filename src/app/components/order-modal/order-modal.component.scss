@@ -21,6 +21,8 @@
 
     .content {
         width: 37rem;
+        max-height: 80vh;
+        overflow-y: auto;
         background-color: $white;
         border-radius: 0.75rem;
         padding: 2.5rem;
@@ -134,6 +136,7 @@
         }
 
         .confirm-button {
+            flex-shrink: 0;
             background-color: $red;
             color: $white;
             height: 3.313rem;

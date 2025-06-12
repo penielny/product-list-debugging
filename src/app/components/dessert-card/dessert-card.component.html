@@ -1,5 +1,7 @@
 <div class="dessert-item">
-    <section class="item-image-add-to-cart">
+    <section class="item-image-add-to-cart" [ngClass]="{
+'selected': isInCart
+}">
         <img [src]="dessert.image.tablet" alt="dessert image">
         <app-add-to-cart [dessert]="dessert" />
     </section>

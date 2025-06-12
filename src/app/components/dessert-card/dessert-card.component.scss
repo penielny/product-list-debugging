@@ -1,6 +1,10 @@
 @use 'mixins' as *;
 @use 'variables' as *;
 
+.selected{
+    border: 2px solid $red;
+    border-radius: 10px;
+}
 .dessert-item {
     @include flex(column, flex-start, stretch, 2rem);
     width: 250px;
