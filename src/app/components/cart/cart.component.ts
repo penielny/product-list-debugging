@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
 import { CartService } from '../../services/cart';
 import { cartItem } from '../../interfaces/cart';
 import { DessertService } from '../../services/dessert';
@@ -19,6 +19,8 @@ interface ViewCartItem {
   styleUrl: './cart.component.scss'
 })
 export class CartComponent implements OnInit {
+
+  @Output() showModalEvent = new EventEmitter()
 
   cart: ViewCartItem[] = [];
   constructor(private cartService: CartService, private dessertService: DessertService) { }
@@ -50,6 +52,10 @@ export class CartComponent implements OnInit {
 
   getTotal(): number {
     return this.cartService.getTotal()
+  }
+
+  onConfirm() {
+    this.showModalEvent.emit()
   }
 
 }

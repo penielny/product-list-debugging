@@ -1,24 +1,33 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { AddToCartComponent } from "./components/add-to-cart/add-to-cart.component";
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgIf } from '@angular/common';
 import { Dessert } from './interfaces/dessert';
 import { DessertService } from './services/dessert';
 import { CartComponent } from "./components/cart/cart.component";
+import { OrderModalComponent } from './components/order-modal/order-modal.component';
 
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
-  imports: [AddToCartComponent,CartComponent, CommonModule, CartComponent]
+  imports: [AddToCartComponent,OrderModalComponent, CartComponent, CommonModule, CartComponent,NgIf]
 })
 
 export class AppComponent {
   title = 'Product list';
   desserts: Dessert[] | null = null;
+  showConfirmModal: boolean=false;
+
+  @Input() showingValue!:boolean ;
 
   constructor(private dessertService: DessertService) {
     this.desserts = this.dessertService.getDesserts();
   };
+
+  toggleModal(){
+    this.showConfirmModal = true;
+    // console.log(true)
+  }
 
 };

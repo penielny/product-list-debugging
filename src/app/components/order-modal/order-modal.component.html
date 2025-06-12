@@ -1,0 +1,40 @@
+<div class="modal-wrapper">
+    <div class="content">
+        <div class="header">
+            <img src="images/icon-order-confirmed.svg" />
+            <div class="header-text">
+                <h1>Order Confirmed</h1>
+                <p>We hope you enjoy your food!</p>
+            </div>
+        </div>
+        <div class="item-list-container">
+            <div class="item-list">
+                @for (item of cart; track $index) {
+                    <div class="item"
+                    [ngClass]="{ 'border-b': !$last }"
+                    >
+                        <div class="item-image-container">
+                            <img class="item-thumbnail" src="images/image-panna-cotta-thumbnail.jpg" />
+    
+                            <div class="item-info">
+                                <h3>Classic Tiramisu</h3>
+                                <p>
+                                    <span class="item-quantity">{{item.quantity}}x</span>
+                                    <span class="item-price">{{item.price | currency:'USD':'symbol':'1.2-2'}}</span>
+                                </p>
+                            </div>
+                        </div>
+                        <p class="item-total-price">{{item.quantity * item.price | currency:'USD':'symbol':'1.2-2'}}</p>
+                    </div>
+                }
+            </div>
+            <div class="total-container">
+                <p class="total-label">Order Total</p>
+                <h3 class="cart-total">{{8 | currency:'USD':'symbol':'1.2-2'}}</h3>
+            </div>
+        </div>
+        <button class="confirm-button">
+            Start New Order
+        </button>
+    </div>
+</div>

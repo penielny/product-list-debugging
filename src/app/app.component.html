@@ -18,5 +18,8 @@
       }
     </div>
   </section>
-  <app-cart></app-cart>
+  <app-cart (showModalEvent)="toggleModal()"></app-cart>
+  @if (showConfirmModal) {
+  <app-order-modal></app-order-modal>
+  }
 </main>
