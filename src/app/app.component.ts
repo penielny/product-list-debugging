@@ -6,29 +6,33 @@ import { DessertService } from './services/dessert';
 import { CartComponent } from "./components/cart/cart.component";
 import { OrderModalComponent } from './components/order-modal/order-modal.component';
 import { DessertCardComponent } from './components/dessert-card/dessert-card.component';
+import { CartService } from './services/cart';
 
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
-  imports: [DessertCardComponent,OrderModalComponent, CartComponent, CommonModule, CartComponent]
+  imports: [DessertCardComponent, OrderModalComponent, CartComponent, CommonModule, CartComponent]
 })
 
 export class AppComponent {
   title = 'Product list';
   desserts: Dessert[] | null = null;
-  showConfirmModal: boolean=false;
+  showConfirmModal: boolean = false;
 
-  @Input() showingValue!:boolean ;
-
-  constructor(private dessertService: DessertService) {
+  constructor(private dessertService: DessertService, private cartService: CartService) {
     this.desserts = this.dessertService.getDesserts();
   };
 
-  toggleModal(){
+  toggleModal() {
     this.showConfirmModal = true;
     // console.log(true)
+  }
+
+  closeModal() {
+    this.cartService.clearCart()
+    this.showConfirmModal = false;
   }
 
 };
