@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { CartService } from '../../services/cart';
 import { map } from 'rxjs';
 import { cartItem } from '../../interfaces/cart';
@@ -20,8 +20,9 @@ interface ViewCartItem {
   styleUrl: './order-modal.component.scss'
 })
 export class OrderModalComponent implements OnInit {
-  constructor(private cartService: CartService, private dessertService: DessertService) { }
+  @Output() startNewAction = new EventEmitter();
   cart: ViewCartItem[] = [];
+  constructor(private cartService: CartService, private dessertService: DessertService) { }
 
   ngOnInit(): void {
     this.cartService.cart$
@@ -43,5 +44,9 @@ export class OrderModalComponent implements OnInit {
           console.log(value)
         }
       });
+  }
+
+  onStartNew(){
+    this.startNewAction.emit()
   }
 }

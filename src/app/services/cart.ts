@@ -71,6 +71,10 @@ export class CartService {
         return this.cartSubject.getValue()
     }
 
+    clearCart(){
+        this.cartSubject.next([])
+    }
+
     getTotal(): number {
         const currentCart = this.cartSubject.getValue();
         const total = currentCart.reduce((sum, cartItem) => {
