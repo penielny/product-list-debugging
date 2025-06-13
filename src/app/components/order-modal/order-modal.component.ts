@@ -46,6 +46,9 @@ export class OrderModalComponent implements OnInit {
       });
   }
 
+  getTotalPrice():number{
+    return this.cartService.getTotal()
+  }
   onStartNew(){
     this.startNewAction.emit()
   }

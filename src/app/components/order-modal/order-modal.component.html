@@ -30,7 +30,7 @@
             </div>
             <div class="total-container">
                 <p class="total-label">Order Total</p>
-                <h3 class="cart-total">{{8 | currency:'USD':'symbol':'1.2-2'}}</h3>
+                <h3 class="cart-total">{{getTotalPrice() | currency:'USD':'symbol':'1.2-2'}}</h3>
             </div>
         </div>
         <button (click)="onStartNew()" class="confirm-button">
