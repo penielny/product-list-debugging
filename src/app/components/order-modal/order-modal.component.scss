@@ -1,11 +1,10 @@
 @use 'mixins' as *;
 @use 'variables' as *;
 
-.border-b{
+.border-b {
     border-bottom: 1px solid $rose-100;
     padding-bottom: 1rem;
 }
-
 
 .modal-wrapper {
     position: fixed;
@@ -142,6 +141,51 @@
             height: 3.313rem;
             border-radius: 62.438rem;
             @include TextPreset3;
+        }
+    }
+}
+
+@media screen and (max-width : 425px) {
+    .modal-wrapper {
+        align-items: end;
+
+        .content {
+            max-height: 90dvh;
+            padding: 0rem;
+            gap: 2rem;
+            border-bottom-left-radius: 0;
+            border-bottom-left-radius: 0;
+
+            .header {
+                padding: 2.5rem 1.5rem;
+                padding-bottom: 0;
+            }
+
+            .item-list {
+
+                .item {
+                    .item-image-container {
+                        .item-info {
+                            h3 {
+                                width: 70%;
+                                white-space: nowrap;
+                                overflow: hidden;
+                                text-overflow: ellipsis;
+                            }
+                        }
+                    }
+                }
+
+            }
+
+            .item-list-container {
+                padding: 0 1.5rem;
+            }
+
+            .confirm-button {
+                margin: 0 1.5rem;
+                margin-bottom: 24px;
+            }
         }
     }
 }
