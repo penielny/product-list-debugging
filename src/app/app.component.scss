@@ -12,10 +12,10 @@ main {
   display: flex;
   flex-direction: row;
   overflow-y: auto;
-    padding: 5.5rem 0rem;
-   // padding: 1rem 0;
-    // flex-wrap: wrap;
-    
+  padding: 5.5rem 0rem;
+  // padding: 1rem 0;
+  // flex-wrap: wrap;
+
 }
 
 .desserts {
@@ -37,66 +37,32 @@ main {
   width: 100%;
   height: 100%;
 
-  .dessert-item {
-    @include flex(column, flex-start, stretch, 2rem);
-    width: 250px;
-    height: fit-content;
+}
 
-    .item-image-add-to-cart {
-      @include flex(column);
-
-      img {
-        aspect-ratio: 1;
-        border-radius: 10px;
-        object-fit: cover;
-      }
-    }
-
-    // .add-to-cart-container button {
-    //   @include flex(row, flex-start, stretch, 0.5rem);
-    //   padding: 0.5rem 1rem;
-    //   border: 1px solid $rose-400;
-    //   background-color: $white;
-    //   border-radius: 50px;
-    //   width: fit-content;
-    //   margin: -1.2rem auto;
-    //   cursor: pointer;
-
-    //   &:hover {
-    //     color: $red;
-    //     border-color: $red;
-    //     transition: all 300ms ease-in-out;
-    //   }
-
-    //   p {
-    //     @include TextPreset4Bold;
-    //   }
-    // }
-
-    // item info
-    .item-info {
-      .category {
-        @include TextPreset4;
-      }
-
-      .name,
-      .price {
-        @include TextPreset3;
-      }
-
-      .price {
-        color: $red;
-      }
-    }
+@media screen and (max-width : 425px) {
+  main {
+    flex-direction: column;
   }
 }
 
-@media screen and (max-width:768px) {
-
-  .dessert-item {
-    width: 100%;
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .desserts-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
   }
-  main{
-   flex-direction: column;
+
+  main {
+    flex-direction: column;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .desserts-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  main {
+    flex-direction: row;
   }
 }

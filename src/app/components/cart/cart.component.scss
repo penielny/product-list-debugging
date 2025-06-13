@@ -25,45 +25,50 @@
     .empty-cart-content {
       @include flex(column, center, center);
       width: 100%;
-      
+
       p {
         @include TextPreset4Bold;
         color: $rose-500;
       }
     }
 
-    .cart-items-list{
+    .cart-items-list {
       display: flex;
       flex-direction: column;
 
-      .cart-item{
+      .cart-item {
         display: flex;
         flex-direction: row;
         align-items: center;
-                border-bottom: 1px solid $rose-100;
+        border-bottom: 1px solid $rose-100;
         margin-bottom: 1rem;
       }
-      .item-info-container{
+
+      .item-info-container {
         display: flex;
         flex-direction: column;
-        flex:1;
+        flex: 1;
         gap: 0.5rem;
         padding-bottom: 1rem;
-        .item-info-name{
+
+        .item-info-name {
           @include TextPreset4Bold;
         }
-        .item-sumary{
-           @include TextPreset4Bold;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-           .item-quantity{
+
+        .item-sumary {
+          @include TextPreset4Bold;
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+
+          .item-quantity {
             min-width: 1.313rem;
             color: $red;
-           }
+          }
         }
       }
-      .itemm-delete-button{
+
+      .itemm-delete-button {
         height: 1.094rem;
         width: 1.094rem;
         border: 1.5px solid $rose-400;
@@ -75,24 +80,27 @@
 
     }
 
-    .item-list-total-container{
+    .item-list-total-container {
       display: flex;
       flex-direction: column;
       gap: 1.5rem;
 
-      .cart-total-container{
+      .cart-total-container {
         display: flex;
         align-items: center;
         justify-content: space-between;
         color: $rose-900;
-       p{
-         @include TextPreset4
-       }
-       h3{
-         @include TextPreset2
-       }
+
+        p {
+          @include TextPreset4
+        }
+
+        h3 {
+          @include TextPreset2
+        }
       }
-      .cart-quick-message{
+
+      .cart-quick-message {
         display: flex;
         align-items: center;
         text-align: center;
@@ -102,11 +110,13 @@
         border-radius: 0.5rem;
         gap: 0.031rem;
         @include TextPreset4;
-        .bold{
+
+        .bold {
           @include TextPreset4Bold;
         }
       }
-      .confirm-button{
+
+      .confirm-button {
         background-color: $red;
         color: $white;
         height: 3.313rem;
@@ -118,4 +128,11 @@
 
 
 
+}
+
+
+@media screen and (max-width : 768px) {
+  .cart {
+    width: 100%;
+  }
 }
